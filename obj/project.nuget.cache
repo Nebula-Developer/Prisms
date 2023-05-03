@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "dgSpecHash": "MNLR0zuY6CUFdtfEqaIkRSiuamtRMbRuYnbkeZjxCgI0xUodLMNJgpePt0J+/0isydzG5fWbN1JeB9goDFRCew==",
+  "success": true,
+  "projectFilePath": "/home/nebuladev/Documents/Prisms/Prisms.csproj",
+  "expectedPackageFiles": [
+    "/home/nebuladev/.nuget/packages/csfml/2.5.0/csfml.2.5.0.nupkg.sha512",
+    "/home/nebuladev/.nuget/packages/sfml.audio/2.5.0/sfml.audio.2.5.0.nupkg.sha512",
+    "/home/nebuladev/.nuget/packages/sfml.graphics/2.5.0/sfml.graphics.2.5.0.nupkg.sha512",
+    "/home/nebuladev/.nuget/packages/sfml.net/2.5.0/sfml.net.2.5.0.nupkg.sha512",
+    "/home/nebuladev/.nuget/packages/sfml.system/2.5.0/sfml.system.2.5.0.nupkg.sha512",
+    "/home/nebuladev/.nuget/packages/sfml.window/2.5.0/sfml.window.2.5.0.nupkg.sha512",
+    "/home/nebuladev/.nuget/packages/microsoft.aspnetcore.app.ref/7.0.3/microsoft.aspnetcore.app.ref.7.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
