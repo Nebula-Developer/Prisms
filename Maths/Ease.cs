@@ -12,7 +12,10 @@ public enum EaseType {
     InCirc, OutCirc, InOutCirc,
     InBack, OutBack, InOutBack,
     InElastic, OutElastic, InOutElastic,
-    InBounce, OutBounce, InOutBounce
+    InBounce, OutBounce, InOutBounce,
+    OutPow, InPow, InOutPow,
+    OutSinu, InSinu, InOutSinu,
+    OutExpo2, InExpo2, InOutExpo2
 }
 
 public static class Ease {
@@ -50,6 +53,16 @@ public static class Ease {
     public static float InBounce(float t) => 1 - OutBounce(1 - t);
     public static float OutBounce(float t) => t < 1 / 2.75f ? 7.5625f * t * t : t < 2 / 2.75f ? 7.5625f * (t -= 1.5f / 2.75f) * t + 0.75f : t < 2.5 / 2.75 ? 7.5625f * (t -= 2.25f / 2.75f) * t + 0.9375f : 7.5625f * (t -= 2.625f / 2.75f) * t + 0.984375f;
     public static float InOutBounce(float t) => t < 0.5 ? InBounce(t * 2) / 2 : OutBounce(t * 2 - 1) / 2 + 0.5f;
+    public static float InPow(float t, float exp) => MathF.Pow(t, exp);
+    public static float OutPow(float t, float exp) => 1 - MathF.Pow(1 - t, exp);
+    public static float InOutPow(float t, float exp) => t < 0.5 ? MathF.Pow(t * 2, exp) / 2 : 1 - MathF.Abs(MathF.Pow(t * 2 - 2, exp)) / 2;
+    public static float InSinu(float t) => 1 - MathF.Cos(t * MathF.PI / 2);
+    public static float OutSinu(float t) => MathF.Sin(t * MathF.PI / 2);
+    public static float InOutSinu(float t) => -(MathF.Cos(MathF.PI * t) - 1) / 2;
+    public static float InExpo2(float t) => t == 0 ? 0 : MathF.Pow(2, 10 * (t - 1));
+    public static float OutExpo2(float t) => t == 1 ? 1 : 1 - MathF.Pow(2, -10 * t);
+    public static float InOutExpo2(float t) => t == 0 ? 0 : t == 1 ? 1 : t < 0.5 ? MathF.Pow(2, 20 * t - 10) / 2 : (2 - MathF.Pow(2, -20 * t + 10)) / 2;
+
 
     public static float From(EaseType type, float t) => type switch {
         EaseType.Linear => Linear(t),
@@ -86,6 +99,15 @@ public static class Ease {
         EaseType.InBounce => InBounce(t),
         EaseType.OutBounce => OutBounce(t),
         EaseType.InOutBounce => InOutBounce(t),
+        EaseType.InPow => InPow(t, 2),
+        EaseType.OutPow => OutPow(t, 2),
+        EaseType.InOutPow => InOutPow(t, 2),
+        EaseType.InSinu => InSinu(t),
+        EaseType.OutSinu => OutSinu(t),
+        EaseType.InOutSinu => InOutSinu(t),
+        EaseType.InExpo2 => InExpo2(t),
+        EaseType.OutExpo2 => OutExpo2(t),
+        EaseType.InOutExpo2 => InOutExpo2(t),
         _ => throw new ArgumentException("Invalid ease type")
     };
 }

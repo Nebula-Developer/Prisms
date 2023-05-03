@@ -21,21 +21,22 @@ public class MainMenuScreen : Screen {
     float duration = 1f;
     float deltaAm = 0f;
 
-    Text resultTextA = new Text("", new Font("/usr/share/fonts/TTF/DejaVuSans.ttf")) {
+    // macos default font:
+    Text resultTextA = new Text("", new Font("/System/Library/Fonts/SFNSMono.ttf")) {
         CharacterSize = 24, FillColor = Color.White, Position = new Vector2f(100, 370)
     };
 
-    Text resultTextB = new Text("", new Font("/usr/share/fonts/TTF/DejaVuSans.ttf")) {
+    Text resultTextB = new Text("", new Font("/System/Library/Fonts/SFNSMono.ttf")) {
         CharacterSize = 24, FillColor = Color.White, Position = new Vector2f(100, 400)
     };
 
-    Text timeText = new Text("", new Font("/usr/share/fonts/TTF/DejaVuSans.ttf")) {
+    Text timeText = new Text("", new Font("/System/Library/Fonts/SFNSMono.ttf")) {
         CharacterSize = 24,
         FillColor = Color.Cyan,
         Position = new Vector2f(100, 500)
     };
 
-    EaseType easeType;
+    EaseType easeType = EaseType.Linear;
 
     public override void Update() {
         deltaAm += Time.DeltaTime / duration;

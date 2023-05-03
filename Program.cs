@@ -17,13 +17,14 @@ public static class Program {
             manager.Resize();
         };
 
-        MainMenuScreen mainMenu = new MainMenuScreen(window);
+        AnimationTestScreen mainMenu = new AnimationTestScreen(window);
         manager.LoadScreen(mainMenu);
 
         while (window.IsOpen) {
             window.DispatchEvents();
 
             Time.Update();
+            Animations.Update();
             manager.Update();
             manager.Draw();
 
