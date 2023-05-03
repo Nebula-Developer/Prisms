@@ -12,7 +12,7 @@ public class AnimationTestScreen : Screen {
 
     public AnimationTestScreen(RenderWindow window) : base(window) {
         anim = Animation.Create(duration, easeType, (float ease) => {
-            rect.Position = new Vector2f(400, 300) + new Vector2f(200 * ease, 0);
+            rect.Position = new Vector2f(window.Size.X - rect.Size.X, window.Size.Y - rect.Size.Y) * ease;
         }, false);
     }
 

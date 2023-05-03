@@ -17,6 +17,8 @@ public static class Program {
             manager.Resize();
         };
 
+        window.Closed += (sender, e) => window.Close();
+
         AnimationTestScreen mainMenu = new AnimationTestScreen(window);
         manager.LoadScreen(mainMenu);
 
